@@ -14,6 +14,7 @@
     "semi": ["error", "never"],
     "react/jsx-fragments": ["error", "element"],
     "import/no-named-as-default": 0,
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
