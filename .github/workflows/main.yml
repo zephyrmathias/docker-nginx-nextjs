@@ -1,8 +1,8 @@
 name: CI/CD
 
 env:
-  CLIENT_IMAGE_NAME: zephyrmathias-client
-  NGINX_IAMGE_NAME: zephyrmathias-nginx
+  CLIENT_IMAGE_NAME: zephyrmathias/client
+  NGINX_IMAGE_NAME: zephyrmathias/nginx
   IMAGE_TAG: ${{ github.sha }}
 
 on:
