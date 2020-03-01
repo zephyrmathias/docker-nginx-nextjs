@@ -1,0 +1,32 @@
+name: CI/CD
+
+env:
+  CLIENT_IMAGE_NAME: zephyrmathias/client
+  NGINX_IAMGE_NAME: zephyrmathias/nginx
+  IMAGE_TAG: ${{ github.sha }}
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Docker Images
+      run: |
+        docker build -t $CLIENT_IMAGE_NAME:$IMAGE_TAG --target prod .
+        docker build -t $NGINX_IMAGE_NAME:$IMAGE_TAG ./nginx
+        
+    - name: Login Docker Hub
+      run: |
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER }} --password-stdin
+    
+    - name: Push Docker Images to Docker Hub
+      run: |
+        docker push $CLIENT_IMAGE_NAME:$IMAGE_TAG
+        docker push $NGINX_IMAGE_NAME:$IMAGE_TAG
