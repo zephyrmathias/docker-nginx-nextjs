@@ -1,0 +1,23 @@
+name: run test on pull request
+
+env:
+  IMAGE_NAME: docker-nginx-nextjs
+
+on:
+  pull_request:
+    branches: master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build docker image for testing
+      run: docker build --target test -t=$IMAGE_NAME .
+        
+    - name: Run docker image
+      run: |
+        docker run $IMAGE_NAME
