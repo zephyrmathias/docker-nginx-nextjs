@@ -4,7 +4,7 @@ env:
   CLIENT_IMAGE_NAME: zephyrmathias/client
   NGINX_IMAGE_NAME: zephyrmathias/nginx
   IMAGE_TAG: ${{ github.sha }}
-  DEPLOY_PACKAGE_NAME: app.${{ gothub.sha }}.zip
+  DEPLOY_PACKAGE_NAME: app.${{ github.sha }}.zip
   S3_BUCKET_NAME: ebs-testing-bucket
   EBS_APPLICATION_NAME: next-docker
   EBS_ENVIRONMENT_NAME: NextDocker-env
