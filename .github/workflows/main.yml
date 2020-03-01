@@ -17,18 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build Docker Images
-      env:
-        DOCKER_BUILDKIT: 1
-      run: |
-        docker build --target=prod -t $CLIENT_IMAGE_NAME:$IMAGE_TAG .
-        docker build -t $NGINX_IMAGE_NAME:$IMAGE_TAG ./nginx
-        
     - name: Login Docker Hub
       run: |
-        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER }} --password-stdin
-    
-    - name: Push Docker Images to Docker Hub
-      run: |
-        docker push $CLIENT_IMAGE_NAME:$IMAGE_TAG
-        docker push $NGINX_IMAGE_NAME:$IMAGE_TAG
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
