@@ -18,8 +18,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build Docker Images
+      env:
+        DOCKER_BUILDKIT: 1
       run: |
-        docker build -t=$CLIENT_IMAGE_NAME:$IMAGE_TAG --target prod .
+        docker build --target prod -t=$CLIENT_IMAGE_NAME:$IMAGE_TAG .
         docker build -t=$NGINX_IMAGE_NAME:$IMAGE_TAG ./nginx
         
     - name: Login Docker Hub
