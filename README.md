@@ -8,7 +8,7 @@ This is example project (boilerplate) of how to create a simple Next.js project 
   - Nginx
   - Next.js
 
-### Github Actions Workflow
+# Github Actions Workflow
 ##### On Pull Request
 Exampel of basic workflow with github actions
 When create Pull Requests to `master` branch it needs to run following:
