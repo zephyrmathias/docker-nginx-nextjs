@@ -3,7 +3,7 @@ name: CI/CD
 env:
   CLIENT_IMAGE_NAME: zephyrmathias/client
   NGINX_IAMGE_NAME: zephyrmathias/nginx
-  IMAGE_TAG: ${{ github.sha }}
+  IMAGE_TAG: ${GITHUB_SHA::8}
 
 on:
   push:
