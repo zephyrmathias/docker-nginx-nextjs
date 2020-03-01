@@ -19,8 +19,8 @@ jobs:
 
     - name: Build Docker Images
       run: |
-        docker build -t $CLIENT_IMAGE_NAME:$IMAGE_TAG --target prod .
-        docker build -t $NGINX_IMAGE_NAME:$IMAGE_TAG ./nginx
+        docker build -t=$CLIENT_IMAGE_NAME:$IMAGE_TAG --target prod .
+        docker build -t=$NGINX_IMAGE_NAME:$IMAGE_TAG ./nginx
         
     - name: Login Docker Hub
       run: |
