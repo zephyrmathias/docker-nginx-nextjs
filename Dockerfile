@@ -14,7 +14,6 @@ RUN apk update \
   && apk add --no-cache make gcc g++ python \
   && rm -rf /var/cache/apk*
 
-COPY ./ ./
 
 # Development Stage
 FROM base AS dev
@@ -27,8 +26,13 @@ EXPOSE 9229
 CMD ["nodemon", "--watch", "./server.js", "--exec", "node", "./server.js", "--inspect=0.0.0.0:9229"]
 
 
+# Source Stage
+FROM base AS source
+COPY ./ ./
+
+
 # Build Stage
-FROM base AS build
+FROM source AS builder
 ENV NODE_ENV=production
 ENV PATH=/opt/app/node_modules/.bin:$PATH
 
@@ -39,15 +43,15 @@ RUN npm run build
 
 
 # Production Stage
-FROM build AS prod
+FROM source AS prod
 
 RUN rm -f /opt/app/.npmrc
 
 ENV NODE_ENV=production
 ENV PATH=/opt/app/node_modules/.bin:$PATH
 
-# Copy only .next built files
-COPY --from=build /opt/app/.next ./
+# Copy only Next.js built files from builder stage
+COPY --from=builder /opt/app/.next ./.next
 
 EXPOSE 8000
 
