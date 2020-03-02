@@ -10,12 +10,15 @@
     "test": "LOG_LEVEL=warn npm run test:parallel",
     "test:sequential": "NODE_ENV=testing jest -i",
     "test:parallel": "NODE_ENV=testing jest",
-    "test:coverage": "NODE_ENV=testing jest --coverage"
+    "test:coverage": "NODE_ENV=testing jest --coverage",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@storybook/addon-knobs": "^5.3.14",
     "envalid": "^6.0.1",
     "express": "^4.17.1",
     "next": "^9.2.2",
@@ -24,8 +27,14 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.6",
+    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/addon-links": "^5.3.14",
+    "@storybook/addons": "^5.3.14",
+    "@storybook/react": "^5.3.14",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
     "babel-plugin-module-resolver": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
