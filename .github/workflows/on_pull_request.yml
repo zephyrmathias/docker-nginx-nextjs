@@ -24,5 +24,7 @@ jobs:
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
+        mkdir "${PWD}/coverage"
+        chmod -R 777 "${PWD}/coverage"
         docker run $IMAGE_NAME -v "$PWD/coverage:/opt/app/coverage"
         bash <(curl -s https://codecov.io/bash)
