@@ -9,22 +9,23 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Build docker image for testing
-      env:
-        DOCKER_BUILDKIT: 1
-      run: docker build --target test -t=$IMAGE_NAME .
-        
-    - name: Run docker image
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run: |
-        mkdir "${PWD}/coverage"
-        chmod -R 777 "${PWD}/coverage"
-        docker run $IMAGE_NAME -v "$PWD/coverage:/opt/app/coverage"
-        bash <(curl -s https://codecov.io/bash)
+      - name: Build docker image for testing
+        env:
+          DOCKER_BUILDKIT: 1
+        run: docker build --target test -t=$IMAGE_NAME .
+
+      - name: Run docker image
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          mkdir "${PWD}/coverage"
+          chmod -R 777 "${PWD}/coverage"
+          docker run $IMAGE_NAME \
+            -v "$PWD/coverage:/opt/app/coverage" \
+            -i --rm $(IMAGE_NAME) npm run test:coverage
+          bash <(curl -s https://codecov.io/bash)

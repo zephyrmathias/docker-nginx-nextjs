@@ -37,8 +37,6 @@ ENV NODE_ENV=testing
 ENV PATH=/opt/app/node_modules/.bin:$PATH
 RUN npm install --only=development
 
-CMD ["npm", "run", "test:coverage"]
-
 
 # Build Stage
 FROM source AS builder
