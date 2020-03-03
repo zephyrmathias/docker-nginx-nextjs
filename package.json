@@ -10,7 +10,7 @@
     "test": "LOG_LEVEL=warn npm run test:parallel",
     "test:sequential": "NODE_ENV=testing jest -i",
     "test:parallel": "NODE_ENV=testing jest",
-    "test:coverage": "NODE_ENV=testing jest --coverage",
+    "test:coverage": "NODE_ENV=testing jest --collectCoverage=true",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
