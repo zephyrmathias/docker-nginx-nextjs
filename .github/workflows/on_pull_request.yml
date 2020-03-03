@@ -16,6 +16,8 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build docker image for testing
+      env:
+        DOCKER_BUILDKIT: 1
       run: docker build --target test -t=$IMAGE_NAME .
         
     - name: Run docker image
