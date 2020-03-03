@@ -19,5 +19,8 @@ jobs:
       run: docker build --target test -t=$IMAGE_NAME .
         
     - name: Run docker image
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
-        docker run $IMAGE_NAME
+        docker run $IMAGE_NAME -v "$PWD/coverage:/opt/app/coverage"
+        bash <(curl -s https://codecov.io/bash)
