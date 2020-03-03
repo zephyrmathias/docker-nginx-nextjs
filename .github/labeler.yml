@@ -4,4 +4,5 @@ test:
 
 # Add 'dependencies' to any changes on package*.json
 dependencies:
-  - package*.json
+  - package.json
+  - package-lock.json
