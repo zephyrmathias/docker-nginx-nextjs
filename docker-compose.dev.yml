@@ -12,3 +12,11 @@ services:
     ports:
       - 8000:8000
       - 9229:9229
+  nginx:
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 80:80
+    links:
+      - client

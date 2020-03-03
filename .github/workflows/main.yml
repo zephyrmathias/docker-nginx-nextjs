@@ -1,0 +1,66 @@
+name: CI/CD
+
+env:
+  CLIENT_IMAGE_NAME: zephyrmathias/client
+  NGINX_IMAGE_NAME: zephyrmathias/nginx
+  IMAGE_TAG: ${{ github.sha }}
+  DEPLOY_PACKAGE_NAME: app.${{ github.sha }}.zip
+  S3_BUCKET_NAME: ebs-testing-bucket
+  EBS_APPLICATION_NAME: next-docker
+  EBS_ENVIRONMENT_NAME: NextDocker-env
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Docker Images
+      env:
+        DOCKER_BUILDKIT: 1
+      run: |
+        docker build --target=prod -t $CLIENT_IMAGE_NAME:$IMAGE_TAG .
+        docker build -t $NGINX_IMAGE_NAME:$IMAGE_TAG ./nginx
+        
+    - name: Login Docker Hub
+      run: |
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+    
+    - name: Push Docker Images to Docker Hub
+      run: |
+        docker push $CLIENT_IMAGE_NAME:$IMAGE_TAG
+        docker push $NGINX_IMAGE_NAME:$IMAGE_TAG
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-southeast-1
+        
+    - name: Zip Dockerrun.aws.json
+      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} Dockerrun.aws.json
+
+    - name: Upload the zip file to S3 Bucket
+      run: |
+        aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.S3_BUCKET_NAME }}
+        
+    - name: Create new Elastic Beanstalk Application Version
+      run: |
+        aws elasticbeanstalk create-application-version \
+        --application-name ${{ env.EBS_APPLICATION_NAME }} \
+        --source-bundle S3Bucket="${{ env.S3_BUCKET_NAME }}",S3Key="${{ env.DEPLOY_PACKAGE_NAME }}" \
+        --version-label "Ver-${{ github.sha }}"
+
+    - name: Deploy new Application
+      run: |
+        aws elasticbeanstalk update-environment \
+        --environment-name ${{ env.EBS_ENVIRONMENT_NAME }} \
+        --version-label "Ver-${{ github.sha }}"
+ 

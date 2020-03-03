@@ -60,7 +60,7 @@ ENV NODE_ENV=production
 ENV PATH=/opt/app/node_modules/.bin:$PATH
 
 # Copy only Next.js built files from builder stage
-COPY --from=builder /opt/app/.next ./.next
+COPY --from=builder /opt/app/.next ./src/.next
 
 EXPOSE 8000
 
