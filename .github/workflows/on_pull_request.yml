@@ -27,5 +27,5 @@ jobs:
           chmod -R 777 "${PWD}/coverage"
           docker run $IMAGE_NAME \
             -v "$PWD/coverage:/opt/app/coverage" \
-            -i --rm $(IMAGE_NAME) npm run test:coverage
+            -i --rm $IMAGE_NAME npm run test:coverage
           bash <(curl -s https://codecov.io/bash)
