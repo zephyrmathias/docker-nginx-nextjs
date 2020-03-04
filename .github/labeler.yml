@@ -1,0 +1,8 @@
+# Add 'test' label to any changes to *.test.js files
+test:
+  - __tests__/**/*.test.js
+
+# Add 'dependencies' to any changes on package*.json
+dependencies:
+  - package.json
+  - package-lock.json
