@@ -8,6 +8,7 @@ This is example project (boilerplate) of how to create a simple Next.js project 
   - Nginx
   - Next.js
   - Storybook
+  - Husky + Commitlint
 
 # Getting Started
 You can run this project via Node.js or Docker
