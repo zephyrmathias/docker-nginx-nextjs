@@ -10,6 +10,8 @@ This is example project (boilerplate) of how to create a simple Next.js project 
   - Nginx
   - Next.js
   - Styled-Components
+  - React Hooks
+  - GitHub Actions
   - Storybook
   - Husky + Commitlint
 
@@ -44,6 +46,9 @@ $ npm run dev
 $ npm run build
 $ npm start
 ```
+
+# Hooks
+Add more React Hooks and Custom Hooks with Testing
 
 
 # Github Actions Workflow
