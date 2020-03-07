@@ -15,8 +15,13 @@ RUN apk update \
   && rm -rf /var/cache/apk*
 
 
+# Source Stage
+FROM base AS source
+COPY ./ ./
+
+
 # Development Stage
-FROM base AS dev
+FROM source AS dev
 ENV NODE_ENV=development
 ENV PATH=/opt/app/node_modules/.bin:$PATH
 
@@ -24,11 +29,6 @@ RUN npm install --only=development
 
 EXPOSE 9229
 CMD ["nodemon", "--watch", "./server.js", "--exec", "node", "./server.js", "--inspect=0.0.0.0:9229"]
-
-
-# Source Stage
-FROM base AS source
-COPY ./ ./
 
 
 # Test Stage

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot should match with snapshot 1`] = `
+<div>
+  <index__Header>
+    a PR
+  </index__Header>
+  <Link
+    href="/hooks1"
+    passHref={true}
+    prefetch={false}
+  >
+    <a>
+      Custom Hooks (API Call) - UseEffect
+    </a>
+  </Link>
+  <div />
+</div>
+`;

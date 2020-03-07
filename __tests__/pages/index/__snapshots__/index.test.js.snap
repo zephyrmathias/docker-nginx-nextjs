@@ -2,6 +2,6 @@
 
 exports[`snapshot should match with snapshot 1`] = `
 <index__Header>
-  TESTAAAzzz PR
+  Homepage
 </index__Header>
 `;

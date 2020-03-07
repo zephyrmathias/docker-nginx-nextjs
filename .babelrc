@@ -6,7 +6,7 @@
       "module-resolver",
       {
         "alias": {
-          "pages": "./pages"
+          "pages": "./src/pages"
         }
       }
     ]
