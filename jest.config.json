@@ -7,5 +7,6 @@
   "moduleFileExtensions": ["js", "json"],
   "testPathIgnorePatterns": ["/node_modules/", "/coverage/"],
   "coverageDirectory": "./coverage/",
-  "collectCoverage": true
+  "collectCoverage": true,
+  "collectCoverageFrom": ["**/src/**/*.{js,jsx}", "!**/_document.js"]
 }

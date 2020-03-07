@@ -3,7 +3,9 @@ import { yellow7, yellow5, gray3 } from '../../constants/colors'
 
 function getButtonType(type) {
   switch (type) {
-    case 'primary-action':
+    case 'secondary':
+      return 'background: black; color: white;'
+    default:
       return `
         background: ${yellow5};
         color: black;
@@ -16,10 +18,6 @@ function getButtonType(type) {
           background: ${gray3};
         }
       `
-    case 'secondary':
-      return 'background: black; color: white;'
-    default:
-      return 'background: black; color: white;'
   }
 }
 
@@ -38,7 +36,7 @@ const Button = styled.button`
 `
 
 Button.defaultProps = {
-  type: 'primary-action',
+  type: 'primary',
 }
 
 export default Button

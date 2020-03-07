@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match with snapshot when it contains a list of posts 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      This is the example of Custom Hooks (API Fetch) with UseEffect
+    </div>
+    <div>
+      <h4>
+        mock title
+      </h4>
+      <p>
+        mock body
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should match with snapshot when it does not contain a post 1`] = `
+<DocumentFragment>
+  <div>
+    Loading..
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should match with snapshot when it is error 1`] = `
+<DocumentFragment>
+  <div>
+    Error!
+  </div>
+</DocumentFragment>
+`;

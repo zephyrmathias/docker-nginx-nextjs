@@ -10,15 +10,14 @@
     "test": "LOG_LEVEL=warn npm run test:parallel",
     "test:sequential": "NODE_ENV=testing jest -i",
     "test:parallel": "NODE_ENV=testing jest",
-    "test:coverage": "NODE_ENV=testing jest --collectCoverage=true",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test:coverage": "NODE_ENV=testing jest --coverage",
+    "test:watch": "NODE_ENV=testing jest --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "envalid": "6.0.1",
+    "envalid": "^6.0.1",
     "express": "^4.17.1",
     "next": "^9.2.2",
     "react": "^16.13.0",
@@ -26,18 +25,11 @@
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@storybook/addon-actions": "^5.3.14",
-    "@storybook/addon-knobs": "^5.3.14",
-    "@storybook/addon-links": "^5.3.14",
-    "@storybook/addons": "^5.3.14",
-    "@storybook/react": "^5.3.14",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-module-resolver": "^4.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -49,16 +41,10 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "jest-styled-components": "^7.0.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
     "snapshot-diff": "^0.7.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import 'jest-styled-components'
-import Homepage from '../../../src/pages/index'
+import Homepage from './index'
 
 describe('snapshot', () => {
   it('should match with snapshot', () => {

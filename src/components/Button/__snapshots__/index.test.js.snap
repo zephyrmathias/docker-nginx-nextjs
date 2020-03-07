@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should apply default values 1`] = `
+.c0 {
+  border-radius: 4px;
+  height: 44px;
+  font-size: 14px;
+  line-height: 14px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: none;
+  text-transform: uppercase;
+  min-width: 150px;
+  cursor: pointer;
+  background: #FFD800;
+  color: black;
+}
+
+.c0:hover {
+  background: #B79500;
+}
+
+.c0:disabled {
+  background: #f4f4f5;
+}
+
+<button
+  className="c0"
+  type="primary"
+/>
+`;
+
+exports[`Button should apply secondary styles 1`] = `
+.c0 {
+  border-radius: 4px;
+  height: 44px;
+  font-size: 14px;
+  line-height: 14px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: none;
+  text-transform: uppercase;
+  min-width: 150px;
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+
+<button
+  className="c0"
+  type="secondary"
+/>
+`;
