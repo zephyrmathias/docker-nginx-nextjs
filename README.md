@@ -1,4 +1,4 @@
-![Codecov Status](https://codecov.io/gh/zephyrmathias/docker-nginx-nextjs/branch/master/graph/badge.svg)[https://codecov.io/gh/zephyrmathias/docker-nginx-nextjs/branch/master]
+![Codecov Status](https://codecov.io/gh/zephyrmathias/docker-nginx-nextjs/branch/master/graph/badge.svg)(https://codecov.io/gh/zephyrmathias/docker-nginx-nextjs/branch/master)
 
 # Docker, Nginx, Next.js
 
