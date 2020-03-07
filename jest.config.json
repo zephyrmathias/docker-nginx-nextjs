@@ -8,13 +8,5 @@
   "testPathIgnorePatterns": ["/node_modules/", "/coverage/"],
   "coverageDirectory": "./coverage/",
   "collectCoverage": true,
-  "collectCoverageFrom": [
-    "**/*.{js,jsx}",
-    "!**/coverage/**",
-    "!**/.storybook/**",
-    "!**/storybook-static/**",
-    "!**/stories/**",
-    "!**/node_modules/**",
-    "!**/vendor/**"
-  ]
+  "collectCoverageFrom": ["**/src/**/*.{js,jsx}", "!**/_document.js"]
 }

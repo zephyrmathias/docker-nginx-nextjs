@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           // eslint-disable-next-line react/jsx-props-no-spreading
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         })
       const initialProps = await Document.getInitialProps(ctx)
 
@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </React.Fragment>
-        )
+        ),
       }
     } finally {
       sheet.seal()

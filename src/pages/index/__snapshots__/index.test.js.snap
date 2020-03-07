@@ -2,9 +2,9 @@
 
 exports[`snapshot should match with snapshot 1`] = `
 <div>
-  <index__Header>
+  <styled.h1>
     a PR
-  </index__Header>
+  </styled.h1>
   <Link
     href="/hooks1"
     passHref={true}
