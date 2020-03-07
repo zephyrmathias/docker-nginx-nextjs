@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`onClick button post id 1 1`] = `
+<DocumentFragment>
+  <div>
+    <h4>
+      Example of how to use custom hooks (fetch) within useEffect (didmount and didupdate)
+    </h4>
+    <div>
+      <button
+        type="submit"
+      >
+        POST ID 1
+      </button>
+      <button
+        type="submit"
+      >
+        POST ID 2
+      </button>
+    </div>
+    <div>
+      <h4>
+        POST ID = 1
+      </h4>
+      <div>
+        <div>
+          name
+        </div>
+        <div>
+          email@email.com
+        </div>
+        <div>
+          body
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`onClick button post id 2 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -15,11 +15,11 @@
+          POST ID 2
+        </button>
+      </div>
+      <div>
+        <h4>
+-         POST ID = 2
++         POST ID = 1
+        </h4>
+        <div>
+          <div>
+            name
+          </div>
+`;
+
+exports[`should match with snapshot when it contains a lits of comments 1`] = `
+<DocumentFragment>
+  <div>
+    <h4>
+      Example of how to use custom hooks (fetch) within useEffect (didmount and didupdate)
+    </h4>
+    <div>
+      <button
+        type="submit"
+      >
+        POST ID 1
+      </button>
+      <button
+        type="submit"
+      >
+        POST ID 2
+      </button>
+    </div>
+    <div>
+      <h4>
+        POST ID = 1
+      </h4>
+      <div>
+        <div>
+          name
+        </div>
+        <div>
+          email@email.com
+        </div>
+        <div>
+          body
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should match with snapshot when it contains error 1`] = `
+<DocumentFragment>
+  <div>
+    Error
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should match with snapshot when it is loading 1`] = `
+<div>
+  Loading...
+</div>
+`;
+
+exports[`should match with snapshot when there is no data 1`] = `
+<DocumentFragment>
+  <div>
+    No data.
+  </div>
+</DocumentFragment>
+`;
+
+exports[`should not set any value when component is unmounted 1`] = `<DocumentFragment />`;
