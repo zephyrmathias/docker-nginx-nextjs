@@ -24,7 +24,7 @@ jobs:
       - name: Build docker image for testing
         env:
           DOCKER_BUILDKIT: 1
-        run: docker build --target test -t=$CLIENT_IMAGE_NAME .
+        run: docker build --target test -t=zephyrmathias/test .
 
       - name: Run docker image and upload to codecov
         env:
@@ -34,7 +34,7 @@ jobs:
           chmod -R 777 "${PWD}/coverage"
           docker run \
           -v "${PWD}"/coverage:/opt/app/coverage \
-          -i --rm $CLIENT_IMAGE_NAME npm test
+          -i --rm zephyrmathias/test npm test
           bash <(curl -s https://codecov.io/bash)
 
       - name: Build Docker Images
