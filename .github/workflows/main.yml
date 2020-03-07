@@ -20,6 +20,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Build docker image for testing
+        env:
+          DOCKER_BUILDKIT: 1
+        run: docker build --target test -t=$IMAGE_NAME .
+
+      - name: Run docker image and upload to codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          mkdir "${PWD}/coverage"
+          chmod -R 777 "${PWD}/coverage"
+          docker run \
+          -v "${PWD}"/coverage:/opt/app/coverage \
+          -i --rm $IMAGE_NAME npm test
+          bash <(curl -s https://codecov.io/bash)
 
       - name: Build Docker Images
         env:
@@ -36,6 +52,7 @@ jobs:
         run: |
           docker push $CLIENT_IMAGE_NAME:$IMAGE_TAG
           docker push $NGINX_IMAGE_NAME:$IMAGE_TAG
+
     # - name: Configure AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v1
     #   with:
