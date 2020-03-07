@@ -11,9 +11,18 @@ const Homepage = () => {
   return (
     <div>
       <Header>a PR</Header>
-      <Link href="/hooks1" prefetch={false} passHref>
-        <a>Custom Hooks (API Call) - UseEffect</a>
-      </Link>
+      <ul>
+        <li>
+          <Link href="/hooks1" prefetch={false} passHref>
+            <a>Custom Hooks (API Call) - UseEffect</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/hooks2" prefetch={false} passHref>
+            <a>Custom Hooks (API Call) - Custom Fetch</a>
+          </Link>
+        </li>
+      </ul>
       <div />
     </div>
   )

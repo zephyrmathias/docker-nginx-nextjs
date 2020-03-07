@@ -5,15 +5,30 @@ exports[`snapshot should match with snapshot 1`] = `
   <styled.h1>
     a PR
   </styled.h1>
-  <Link
-    href="/hooks1"
-    passHref={true}
-    prefetch={false}
-  >
-    <a>
-      Custom Hooks (API Call) - UseEffect
-    </a>
-  </Link>
+  <ul>
+    <li>
+      <Link
+        href="/hooks1"
+        passHref={true}
+        prefetch={false}
+      >
+        <a>
+          Custom Hooks (API Call) - UseEffect
+        </a>
+      </Link>
+    </li>
+    <li>
+      <Link
+        href="/hooks2"
+        passHref={true}
+        prefetch={false}
+      >
+        <a>
+          Custom Hooks (API Call) - Custom Fetch
+        </a>
+      </Link>
+    </li>
+  </ul>
   <div />
 </div>
 `;

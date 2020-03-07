@@ -15,7 +15,7 @@ function CustomHooks1() {
   return (
     <div>
       <div>This is the example of Custom Hooks (API Fetch) with UseEffect</div>
-      {posts.map(post => (
+      {posts.map((post) => (
         <div key={post.id}>
           <h4>{post.title}</h4>
           <p>{post.body}</p>
