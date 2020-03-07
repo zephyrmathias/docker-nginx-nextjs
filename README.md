@@ -1,3 +1,5 @@
+https://codecov.io/gh/zephyrmathias/docker-nginx-nextjs/branch/master/graph/badge.svg
+
 # Docker, Nginx, Next.js
 
 This is example project (boilerplate) of how to create a simple Next.js project with Docker and Nginx
@@ -7,6 +9,7 @@ This is example project (boilerplate) of how to create a simple Next.js project 
   - Docker :whale:
   - Nginx
   - Next.js
+  - Styled-Components
   - Storybook
   - Husky + Commitlint
 
