@@ -22,6 +22,11 @@ const Homepage = () => {
             <a>Custom Hooks (API Call) - Custom Fetch</a>
           </Link>
         </li>
+        <li>
+          <Link href="/styled-components" prefetch={false} passHref>
+            <a>Styled-Component Readability Example</a>
+          </Link>
+        </li>
       </ul>
       <div />
     </div>
